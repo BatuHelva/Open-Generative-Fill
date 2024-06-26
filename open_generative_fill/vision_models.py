@@ -103,6 +103,6 @@ def run_inpainting_pipeline(
         guidance_scale=7.5,
         strength=1.0,
         generator=generator,
-    ).images[0]
+    ).images
     delete_model(pipeline)
     return output
