@@ -113,8 +113,9 @@ def run_lm_model(model_id: str, caption: str, edit_prompt: str, device: str = "c
     output_generation = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[
         0
     ]
-
-    output_generation_a, output_generation_b, _ = output_generation.split("\n")
+    split_generation = output_generation.split("\n")
+    output_generation_a = split_generation[0]
+    output_generation_b = split_generation[1]
     to_replace = output_generation_a[2:].strip()
     replaced_caption = output_generation_b[2:].strip()
 
